@@ -1,5 +1,5 @@
 
-import { GitHub, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Project {
@@ -51,7 +51,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
           >
-            <GitHub className="h-4 w-4" />
+            <Github className="h-4 w-4" />
             Code
           </a>
           <a
