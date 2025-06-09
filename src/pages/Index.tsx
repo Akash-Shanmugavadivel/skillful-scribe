@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, GitHub, Linkedin, Download, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -217,7 +216,7 @@ const Index = () => {
                 <h3 className="font-display font-semibold text-xl mb-4">Connect</h3>
                 <div className="space-y-4">
                   <a href="https://github.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                    <GitHub className="h-5 w-5" />
+                    <Github className="h-5 w-5" />
                     GitHub
                   </a>
                   <a href="https://linkedin.com" className="flex items-center gap-2 hover:text-primary transition-colors">
