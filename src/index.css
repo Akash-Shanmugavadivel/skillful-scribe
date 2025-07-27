@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -13,6 +12,27 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+
+    /* Java Developer Theme */
+    --java-orange: 25 95% 53%;
+    --java-orange-light: 25 95% 63%;
+    --java-orange-dark: 25 95% 43%;
+    --java-blue: 220 91% 50%;
+    --java-blue-light: 220 91% 60%;
+    --java-blue-dark: 220 91% 40%;
+    --java-red: 0 84% 60%;
+    --java-gray: 220 13% 18%;
+    --java-gray-light: 220 13% 91%;
+    
+    /* Gradients */
+    --gradient-java: linear-gradient(135deg, hsl(var(--java-orange)), hsl(var(--java-red)));
+    --gradient-tech: linear-gradient(135deg, hsl(var(--java-blue)), hsl(var(--java-blue-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--java-gray-light)));
+    
+    /* Shadows */
+    --shadow-java: 0 10px 30px -10px hsl(var(--java-orange) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--java-blue) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(var(--java-gray) / 0.1);
   }
 
   * {
@@ -46,27 +66,66 @@
     @apply animate-fade-up;
   }
 
-  .eco-gradient {
-    @apply bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50;
+  .java-gradient {
+    background: var(--gradient-java);
+  }
+  
+  .tech-gradient {
+    background: var(--gradient-tech);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .text-gradient-java {
+    background: var(--gradient-java);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-tech {
+    background: var(--gradient-tech);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .eco-card {
-    @apply bg-white/70 backdrop-blur-sm border border-emerald-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+  .java-card {
+    @apply bg-white/70 backdrop-blur-sm border border-orange-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
-  .eco-text {
-    @apply text-emerald-800;
+  .java-text {
+    @apply text-java-gray;
   }
 
-  .eco-text-light {
-    @apply text-emerald-600;
+  .java-text-light {
+    @apply text-java-blue;
   }
 
-  .eco-button {
-    @apply bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg px-6 py-3 font-medium transition-all duration-200;
+  .java-button {
+    @apply bg-java-orange hover:bg-java-orange-dark text-white rounded-lg px-6 py-3 font-medium transition-all duration-200;
   }
 
-  .eco-badge {
-    @apply px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium;
+  .java-badge {
+    @apply px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }

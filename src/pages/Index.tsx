@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, ExternalLink, Leaf, Award, Calendar, Code, Database, Globe } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink, Coffee, Award, Calendar, Code, Database, Globe, Cpu, Terminal, Zap, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -86,7 +86,7 @@ const Index = () => {
       title: "NSS Volunteer",
       description: "Active volunteer contributing to community service",
       date: "2022 - 2024",
-      icon: <Leaf className="h-6 w-6" />,
+      icon: <Users className="h-6 w-6" />,
     },
     {
       title: "Class Representative",
@@ -102,12 +102,18 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-blue-50 to-red-50 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-java-orange/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-java-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-java-red/10 rounded-full blur-3xl animate-spin-slow"></div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-java-orange/30 rounded-full blur-2xl animate-bounce-slow"></div>
+      </div>
+
       {/* Hero Section */}
-      <section className="section-padding min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/20 via-green-100/20 to-teal-100/20"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-teal-200/30 rounded-full blur-3xl"></div>
+      <section className="section-padding min-h-screen flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-100/10 via-blue-100/10 to-red-100/10"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -116,14 +122,21 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Leaf className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
+            <div className="relative inline-block">
+              <Coffee className="h-16 w-16 text-java-orange mx-auto mb-4 animate-glow" />
+              <motion.div
+                className="absolute -top-2 -right-2 w-6 h-6 bg-java-blue rounded-full"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
           </motion.div>
           
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-display font-bold mb-6 text-gradient-java hover:scale-105 transition-transform duration-300"
           >
             Akash S
           </motion.h1>
@@ -132,19 +145,19 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-emerald-700 mb-4 font-medium"
+            className="text-xl md:text-2xl text-java-blue mb-4 font-medium"
           >
-            Computer Science Student & Full Stack Developer
+            Java Developer & Computer Science Student
           </motion.p>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-emerald-600 mb-8 max-w-3xl mx-auto"
+            className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            Motivated Computer Science student with strong skills in Java, DSA, and full-stack web development (MERN). 
-            Experienced in building scalable apps using Spring Boot and JDBC.
+            Passionate Java developer with expertise in Spring Boot, Data Structures & Algorithms, and modern web technologies. 
+            Building scalable enterprise applications with clean code and innovative solutions.
           </motion.p>
           
           <motion.div
@@ -153,20 +166,24 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex gap-4 justify-center flex-wrap"
           >
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
-              Contact Me
-              <Mail className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-              Download CV
-              <Download className="ml-2 h-4 w-4" />
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button className="bg-java-orange hover:bg-java-orange-dark text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                Contact Me
+                <Mail className="ml-2 h-4 w-4" />
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button variant="outline" className="border-java-blue text-java-blue hover:bg-java-blue hover:text-white transition-all duration-300">
+                Download CV
+                <Download className="ml-2 h-4 w-4" />
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-padding bg-white/50 backdrop-blur-sm">
+      <section id="about" className="section-padding bg-white/50 backdrop-blur-sm relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -175,8 +192,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-emerald-800">About Me</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">About Me</h2>
+            <div className="w-24 h-1 java-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -198,19 +215,28 @@ const Index = () => {
                 thrives on solving complex problems and creating efficient, user-friendly solutions.
               </p>
               
-              <div className="flex gap-4 pt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">300+</div>
+                <div className="flex gap-4 pt-4">
+                <motion.div 
+                  className="text-center p-4 rounded-lg hover-lift cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-2xl font-bold text-java-orange">300+</div>
                   <div className="text-sm text-gray-600">LeetCode Problems</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">8.30</div>
+                </motion.div>
+                <motion.div 
+                  className="text-center p-4 rounded-lg hover-lift cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-2xl font-bold text-java-blue">8.30</div>
                   <div className="text-sm text-gray-600">CGPA</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">4+</div>
+                </motion.div>
+                <motion.div 
+                  className="text-center p-4 rounded-lg hover-lift cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-2xl font-bold text-java-red">4+</div>
                   <div className="text-sm text-gray-600">Major Projects</div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
             
@@ -221,28 +247,43 @@ const Index = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl shadow-lg border border-emerald-100">
-                <h3 className="font-display font-semibold text-xl mb-6 text-emerald-800">Education</h3>
+              <div className="bg-gradient-to-br from-orange-50 to-blue-50 p-8 rounded-2xl shadow-lg border border-orange-100 hover-lift">
+                <h3 className="font-display font-semibold text-xl mb-6 text-java-gray">Education</h3>
                 <div className="space-y-4">
-                  <div className="border-l-4 border-emerald-500 pl-4">
-                    <h4 className="font-semibold text-emerald-700">B.E. Computer Science and Engineering</h4>
+                  <div className="border-l-4 border-java-orange pl-4">
+                    <h4 className="font-semibold text-java-orange">B.E. Computer Science and Engineering</h4>
                     <p className="text-gray-600">Madras Institute of Technology, Chennai</p>
                     <p className="text-sm text-gray-500">2022 - Present | CGPA: 8.30</p>
                   </div>
-                  <div className="border-l-4 border-teal-500 pl-4">
-                    <h4 className="font-semibold text-teal-700">Higher School Education (HSC)</h4>
+                  <div className="border-l-4 border-java-blue pl-4">
+                    <h4 className="font-semibold text-java-blue">Higher School Education (HSC)</h4>
                     <p className="text-gray-600">Brindhavan Higher Secondary School</p>
                     <p className="text-sm text-gray-500">2020 - 2022 | Score: 95.6%</p>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 p-6 rounded-2xl shadow-lg border border-teal-100">
-                <h3 className="font-display font-semibold text-lg mb-4 text-teal-800">Languages</h3>
+              <div className="bg-gradient-to-br from-blue-50 to-red-50 p-6 rounded-2xl shadow-lg border border-blue-100 hover-lift">
+                <h3 className="font-display font-semibold text-lg mb-4 text-java-gray">Languages</h3>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">Tamil (Native)</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">English (Professional)</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">German (Basic)</span>
+                  <motion.span 
+                    className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm cursor-pointer"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    Tamil (Native)
+                  </motion.span>
+                  <motion.span 
+                    className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm cursor-pointer"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    English (Professional)
+                  </motion.span>
+                  <motion.span 
+                    className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm cursor-pointer"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    German (Basic)
+                  </motion.span>
                 </div>
               </div>
             </motion.div>
@@ -251,7 +292,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="section-padding bg-gradient-to-br from-emerald-50/50 to-teal-50/50">
+      <section id="projects" className="section-padding bg-gradient-to-br from-orange-50/30 to-blue-50/30 relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -260,8 +301,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-emerald-800">Featured Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">Featured Projects</h2>
+            <div className="w-24 h-1 java-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -273,7 +314,7 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="section-padding bg-white/50 backdrop-blur-sm">
+      <section id="skills" className="section-padding bg-white/50 backdrop-blur-sm relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -282,8 +323,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-emerald-800">Technical Skills</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">Technical Skills</h2>
+            <div className="w-24 h-1 tech-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -295,7 +336,7 @@ const Index = () => {
       </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="section-padding bg-gradient-to-br from-teal-50/50 to-emerald-50/50">
+      <section id="achievements" className="section-padding bg-gradient-to-br from-red-50/30 to-orange-50/30 relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -304,8 +345,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-emerald-800">Achievements & Activities</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">Achievements & Activities</h2>
+            <div className="w-24 h-1 java-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -316,18 +357,24 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300"
+                className="java-card hover-lift group cursor-pointer"
+                whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-100 rounded-full text-emerald-600">
-                    {achievement.icon}
-                  </div>
+                  <motion.div 
+                    className="p-3 bg-gradient-to-br from-orange-100 to-blue-100 rounded-full"
+                    whileHover={{ rotate: 10 }}
+                  >
+                    <div className="text-java-orange group-hover:text-java-blue transition-colors">
+                      {achievement.icon}
+                    </div>
+                  </motion.div>
                   <div className="flex-1">
-                    <h3 className="font-display font-semibold text-lg text-emerald-800 mb-2">
+                    <h3 className="font-display font-semibold text-lg text-java-gray mb-2 group-hover:text-java-orange transition-colors">
                       {achievement.title}
                     </h3>
                     <p className="text-gray-600 mb-2">{achievement.description}</p>
-                    <div className="flex items-center gap-2 text-sm text-emerald-600">
+                    <div className="flex items-center gap-2 text-sm text-java-blue">
                       <Calendar className="h-4 w-4" />
                       {achievement.date}
                     </div>
@@ -340,7 +387,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-padding bg-white/50 backdrop-blur-sm">
+      <section id="contact" className="section-padding bg-white/50 backdrop-blur-sm relative">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -349,8 +396,8 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-emerald-800">Get in Touch</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">Get in Touch</h2>
+            <div className="w-24 h-1 tech-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
           <div className="grid md:grid-cols-2 gap-12">
@@ -363,36 +410,39 @@ const Index = () => {
               className="space-y-6"
             >
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-emerald-700">Name</Label>
+                <Label htmlFor="name" className="text-java-gray">Name</Label>
                 <Input
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400"
+                  className="border-orange-200 focus:border-java-orange focus:ring-java-orange transition-all duration-300"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-emerald-700">Email</Label>
+                <Label htmlFor="email" className="text-java-gray">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400"
+                  className="border-orange-200 focus:border-java-orange focus:ring-java-orange transition-all duration-300"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-emerald-700">Message</Label>
+                <Label htmlFor="message" className="text-java-gray">Message</Label>
                 <Textarea
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="border-emerald-200 focus:border-emerald-400 focus:ring-emerald-400 min-h-[150px]"
+                  className="border-orange-200 focus:border-java-orange focus:ring-java-orange min-h-[150px] transition-all duration-300"
                 />
               </div>
-              <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700">
-                Send Message
-              </Button>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button type="submit" className="w-full bg-java-orange hover:bg-java-orange-dark shadow-lg hover:shadow-xl transition-all duration-300">
+                  <Zap className="mr-2 h-4 w-4" />
+                  Send Message
+                </Button>
+              </motion.div>
             </motion.form>
             
             <motion.div
@@ -402,36 +452,39 @@ const Index = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl shadow-lg border border-emerald-100">
-                <h3 className="font-display font-semibold text-xl mb-6 text-emerald-800">Connect with Me</h3>
+              <div className="java-card hover-lift">
+                <h3 className="font-display font-semibold text-xl mb-6 text-java-gray">Connect with Me</h3>
                 <div className="space-y-4">
-                  <a
+                  <motion.a
                     href="https://github.com/akashkumaran15"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-emerald-600 transition-colors p-3 rounded-lg hover:bg-emerald-50"
+                    className="flex items-center gap-3 text-gray-700 hover:text-java-orange transition-colors p-3 rounded-lg hover:bg-orange-50 group"
+                    whileHover={{ x: 5 }}
                   >
-                    <Github className="h-5 w-5" />
+                    <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
                     <span>GitHub</span>
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="https://linkedin.com/in/akashkumaran15"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-emerald-600 transition-colors p-3 rounded-lg hover:bg-emerald-50"
+                    className="flex items-center gap-3 text-gray-700 hover:text-java-blue transition-colors p-3 rounded-lg hover:bg-blue-50 group"
+                    whileHover={{ x: 5 }}
                   >
-                    <Linkedin className="h-5 w-5" />
+                    <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
                     <span>LinkedIn</span>
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="mailto:akashkumaran15@gmail.com"
-                    className="flex items-center gap-3 text-gray-700 hover:text-emerald-600 transition-colors p-3 rounded-lg hover:bg-emerald-50"
+                    className="flex items-center gap-3 text-gray-700 hover:text-java-red transition-colors p-3 rounded-lg hover:bg-red-50 group"
+                    whileHover={{ x: 5 }}
                   >
-                    <Mail className="h-5 w-5" />
+                    <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
                     <span>akashkumaran15@gmail.com</span>
-                  </a>
-                  <div className="flex items-center gap-3 text-gray-700 p-3 rounded-lg bg-emerald-50">
-                    <div className="h-5 w-5 bg-emerald-500 rounded-full flex items-center justify-center">
+                  </motion.a>
+                  <div className="flex items-center gap-3 text-gray-700 p-3 rounded-lg bg-gradient-to-r from-orange-50 to-blue-50">
+                    <div className="h-5 w-5 bg-java-orange rounded-full flex items-center justify-center animate-pulse-slow">
                       <span className="text-white text-xs">📞</span>
                     </div>
                     <span>+91 9789359530</span>
@@ -444,13 +497,17 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 bg-emerald-800 text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="flex justify-center items-center gap-2 mb-4">
-            <Leaf className="h-5 w-5" />
+      <footer className="py-8 px-6 bg-gradient-to-r from-java-gray to-java-blue text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-java-orange/5"></div>
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <motion.div 
+            className="flex justify-center items-center gap-2 mb-4"
+            whileHover={{ scale: 1.05 }}
+          >
+            <Coffee className="h-5 w-5 animate-pulse-slow" />
             <span className="font-display font-semibold">Akash S</span>
-          </div>
-          <p className="text-emerald-100">© 2024 Akash S. Building sustainable tech solutions.</p>
+          </motion.div>
+          <p className="text-white/80">© 2024 Akash S. Crafting innovative Java solutions for tomorrow.</p>
         </div>
       </footer>
     </div>
