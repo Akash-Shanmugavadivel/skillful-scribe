@@ -17,14 +17,16 @@ const SkillCard = ({ skill }: SkillCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="glass p-6 rounded-lg"
+      className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300 group"
     >
-      <h3 className="font-display font-semibold text-xl mb-6">{skill.category}</h3>
+      <h3 className="font-display font-semibold text-lg mb-4 text-emerald-800 group-hover:text-emerald-600 transition-colors">
+        {skill.category}
+      </h3>
       <div className="flex flex-wrap gap-2">
         {skill.items.map((item, index) => (
           <span
             key={index}
-            className="px-4 py-2 bg-gray-100 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors"
+            className="px-3 py-1 bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-700 rounded-full text-sm font-medium border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
             {item}
           </span>
