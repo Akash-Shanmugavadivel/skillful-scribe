@@ -11,6 +11,8 @@ import SkillCard from "@/components/SkillCard";
 import BlogPost from "@/components/BlogPost";
 import BlogSection from "@/components/BlogSection";
 import ProgrammingLogos from "@/components/ProgrammingLogos";
+import CodeBlock from "@/components/CodeBlock";
+import TerminalContact from "@/components/TerminalContact";
 
 const Index = () => {
   const [name, setName] = useState("");
@@ -104,18 +106,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-blue-50 to-red-50 relative overflow-hidden">
+    <div className="min-h-screen bg-bytecraft-gray-100 dark:bg-code-dark relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-java-orange/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-java-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-java-red/10 rounded-full blur-3xl animate-spin-slow"></div>
-        <div className="absolute top-40 right-20 w-20 h-20 bg-java-orange/30 rounded-full blur-2xl animate-bounce-slow"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-java-blue/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-java-orange/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-java-blue/5 rounded-full blur-3xl animate-spin-slow"></div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-java-orange/20 rounded-full blur-2xl animate-bounce-slow"></div>
+        
+        {/* Code-inspired floating elements */}
+        <div className="absolute top-1/4 left-1/4 text-6xl opacity-5 font-mono text-java-blue animate-float">{ }</div>
+        <div className="absolute bottom-1/4 right-1/4 text-4xl opacity-5 font-mono text-java-orange animate-float" style={{ animationDelay: '-1s' }}>;</div>
+        <div className="absolute top-3/4 left-1/6 text-5xl opacity-5 font-mono text-java-blue animate-float" style={{ animationDelay: '-3s' }}>( )</div>
       </div>
 
       {/* Hero Section */}
       <section className="section-padding min-h-screen flex items-center justify-center relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100/10 via-blue-100/10 to-red-100/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-java-blue/5 via-transparent to-java-orange/5"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -125,12 +132,27 @@ const Index = () => {
             className="mb-8"
           >
             <div className="relative inline-block">
-              <Coffee className="h-16 w-16 text-java-orange mx-auto mb-4 animate-glow" />
               <motion.div
-                className="absolute -top-2 -right-2 w-6 h-6 bg-java-blue rounded-full"
+                className="text-6xl mb-4"
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                ☕
+              </motion.div>
+              <motion.div
+                className="absolute -top-2 -right-2 w-6 h-6 bg-java-orange rounded-full flex items-center justify-center text-white text-xs font-bold"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-              />
+              >
+                {}
+              </motion.div>
             </div>
           </motion.div>
           
@@ -138,7 +160,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-7xl font-display font-bold mb-6 text-gradient-java hover:scale-105 transition-transform duration-300"
+            className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-java-blue to-java-orange bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
           >
             Akash S
           </motion.h1>
@@ -147,20 +169,20 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-java-blue mb-4 font-medium"
+            className="text-xl md:text-2xl text-bytecraft-gray-700 dark:text-bytecraft-gray-300 mb-4 font-mono"
           >
-            Java Developer & Computer Science Student
+            <span className="text-java-blue">System.out.println</span>(<span className="text-green-600">"Java Developer & Computer Science Student"</span>);
           </motion.p>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-bytecraft-gray-600 dark:text-bytecraft-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed font-body"
           >
-            Hi, I'm Akash, a passionate Java developer specializing in <span className="text-java-orange font-semibold">Spring Boot</span>, 
-            <span className="text-java-blue font-semibold"> Data Structures & Algorithms</span>, and modern web technologies. 
-            I love building scalable enterprise applications and optimizing performance for high-traffic systems.
+            Hi, I'm Akash. I build <span className="text-java-orange font-semibold">robust, scalable backend systems</span> with Java.
+            Experienced in <span className="text-java-blue font-semibold">Spring Boot, RESTful APIs</span>, and 
+            <span className="text-java-orange font-semibold"> cloud-native Java development</span>.
           </motion.p>
           
           <motion.div
@@ -172,7 +194,7 @@ const Index = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-java-orange hover:bg-java-orange-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                className="bytecraft-btn-primary relative overflow-hidden group"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
@@ -184,7 +206,7 @@ const Index = () => {
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="outline" className="border-java-blue text-java-blue hover:bg-java-blue hover:text-white transition-all duration-300">
+              <Button variant="outline" className="border-java-blue text-java-blue hover:bg-java-blue hover:text-white transition-all duration-300 font-mono">
                 Download CV
                 <Download className="ml-2 h-4 w-4" />
               </Button>
@@ -194,7 +216,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-padding bg-white/50 backdrop-blur-sm relative">
+      <section id="about" className="section-padding bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,7 +225,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4 text-java-gray">About Me</h2>
+            <h2 className="text-4xl font-display font-bold mb-4 text-bytecraft-gray-800 dark:text-bytecraft-gray-200">About Me</h2>
             <div className="w-24 h-1 java-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
@@ -215,15 +237,25 @@ const Index = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <CodeBlock />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <p className="text-lg text-bytecraft-gray-700 dark:text-bytecraft-gray-300 leading-relaxed">
                 I'm a passionate Computer Science student at Madras Institute of Technology, Chennai, 
-                with a strong foundation in Java, Data Structures & Algorithms, and full-stack development. 
+                with a strong foundation in Java ecosystem, enterprise development, and modern software architecture. 
                 Currently maintaining a CGPA of 8.30 while actively contributing to real-world tech solutions.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Through various projects and achievements, I've developed expertise in building scalable applications 
-                using modern technologies like Spring Boot, JDBC, and the MERN stack. I'm a quick learner who 
-                thrives on solving complex problems and creating efficient, user-friendly solutions.
+              <p className="text-lg text-bytecraft-gray-700 dark:text-bytecraft-gray-300 leading-relaxed">
+                Through various projects and achievements, I've developed expertise in building production-ready applications 
+                using industry-standard technologies like Spring Boot, microservices architecture, and cloud platforms. 
+                I'm a systematic problem-solver who thrives on creating efficient, maintainable solutions.
               </p>
               
                 <div className="flex gap-4 pt-4">
@@ -507,42 +539,44 @@ const Index = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="java-card hover-lift">
-                <h3 className="font-display font-semibold text-xl mb-6 text-java-gray">Connect with Me</h3>
+              <TerminalContact />
+              
+              <div className="bytecraft-card p-6">
+                <h3 className="font-display font-semibold text-xl mb-6 text-bytecraft-gray-800 dark:text-bytecraft-gray-200">Quick Connect</h3>
                 <div className="space-y-4">
                   <motion.a
                     href="https://github.com/akashkumaran15"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-java-orange transition-colors p-3 rounded-lg hover:bg-orange-50 group"
+                    className="flex items-center gap-3 text-bytecraft-gray-700 dark:text-bytecraft-gray-300 hover:text-java-orange transition-colors p-3 rounded-lg hover:bg-java-orange/10 group"
                     whileHover={{ x: 5 }}
                   >
                     <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                    <span>GitHub</span>
+                    <span className="font-mono">github.com/akashkumaran15</span>
                   </motion.a>
                   <motion.a
-                    href="https://linkedin.com/in/akashkumaran15"
+                    href="https://linkedin.com/in/akash-s"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-java-blue transition-colors p-3 rounded-lg hover:bg-blue-50 group"
+                    className="flex items-center gap-3 text-bytecraft-gray-700 dark:text-bytecraft-gray-300 hover:text-java-blue transition-colors p-3 rounded-lg hover:bg-java-blue/10 group"
                     whileHover={{ x: 5 }}
                   >
                     <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                    <span>LinkedIn</span>
+                    <span className="font-mono">linkedin.com/in/akash-s</span>
                   </motion.a>
                   <motion.a
                     href="mailto:akashkumaran15@gmail.com"
-                    className="flex items-center gap-3 text-gray-700 hover:text-java-red transition-colors p-3 rounded-lg hover:bg-red-50 group"
+                    className="flex items-center gap-3 text-bytecraft-gray-700 dark:text-bytecraft-gray-300 hover:text-java-orange transition-colors p-3 rounded-lg hover:bg-java-orange/10 group"
                     whileHover={{ x: 5 }}
                   >
                     <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                    <span>akashkumaran15@gmail.com</span>
+                    <span className="font-mono">akashkumaran15@gmail.com</span>
                   </motion.a>
-                  <div className="flex items-center gap-3 text-gray-700 p-3 rounded-lg bg-gradient-to-r from-orange-50 to-blue-50">
-                    <div className="h-5 w-5 bg-java-orange rounded-full flex items-center justify-center animate-pulse-slow">
+                  <div className="flex items-center gap-3 text-bytecraft-gray-700 dark:text-bytecraft-gray-300 p-3 rounded-lg bg-gradient-to-r from-java-blue/10 to-java-orange/10">
+                    <div className="h-5 w-5 bg-java-orange rounded-full flex items-center justify-center">
                       <span className="text-white text-xs">📞</span>
                     </div>
-                    <span>+91 9789359530</span>
+                    <span className="font-mono">+91 9789359530</span>
                   </div>
                 </div>
               </div>
