@@ -419,8 +419,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <BlogSection />
+      {/* Blog Section
+      <BlogSection /> */}
 
       {/* Achievements Section */}
       <section id="achievements" className="section-padding bg-gradient-to-br from-red-50/30 to-orange-50/30 relative">

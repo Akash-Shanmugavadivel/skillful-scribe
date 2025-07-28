@@ -2,34 +2,51 @@ import { motion } from "framer-motion";
 
 const CodeBlock = () => {
   const codeLines = [
-    { text: "public class", type: "keyword" },
-    { text: " Developer {", type: "normal" },
-    { text: '    String name = "', type: "normal" },
-    { text: "Akash S", type: "string" },
-    { text: '";', type: "normal" },
-    { text: '    String[] stack = {"', type: "normal" },
-    { text: "Java", type: "string" },
-    { text: '", "', type: "normal" },
-    { text: "Spring Boot", type: "string" },
-    { text: '", "', type: "normal" },
-    { text: "Docker", type: "string" },
-    { text: '", "', type: "normal" },
-    { text: "AWS", type: "string" },
-    { text: '"};', type: "normal" },
-    { text: "    boolean isAvailableForHire = ", type: "normal" },
-    { text: "true", type: "keyword" },
-    { text: ";", type: "normal" },
-    { text: "    ", type: "normal" },
-    { text: "// Always ready for new challenges!", type: "comment" },
-    { text: "}", type: "normal" },
+    [
+      { text: "public class", type: "keyword" },
+      { text: " Developer ", type: "normal" },
+      { text: "{", type: "normal" },
+    ],
+    [
+      { text: "    String name = ", type: "normal" },
+      { text: '"Akash S"', type: "string" },
+      { text: ";", type: "normal" },
+    ],
+    [
+      { text: "    String[] stack = {", type: "normal" },
+      { text: '"Java"', type: "string" },
+      { text: ", ", type: "normal" },
+      { text: '"Spring Boot"', type: "string" },
+      { text: ", ", type: "normal" },
+      { text: '"Docker"', type: "string" },
+      { text: ", ", type: "normal" },
+      { text: '"AWS"', type: "string" },
+      { text: "};", type: "normal" },
+    ],
+    [
+      { text: "    boolean isAvailableForHire = ", type: "normal" },
+      { text: "true", type: "keyword" },
+      { text: ";", type: "normal" },
+    ],
+    [
+      { text: "    ", type: "normal" },
+      { text: "// Always ready for new challenges!", type: "comment" },
+    ],
+    [
+      { text: "}", type: "normal" },
+    ],
   ];
 
   const getColorClass = (type: string) => {
     switch (type) {
-      case "keyword": return "text-purple-600 font-semibold";
-      case "string": return "text-green-600";
-      case "comment": return "text-gray-500 italic";
-      default: return "text-bytecraft-gray-800 dark:text-bytecraft-gray-200";
+      case "keyword":
+        return "text-purple-600 font-semibold";
+      case "string":
+        return "text-green-600";
+      case "comment":
+        return "text-gray-500 italic";
+      default:
+        return "text-bytecraft-gray-800 dark:text-bytecraft-gray-200";
     }
   };
 
@@ -48,11 +65,13 @@ const CodeBlock = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
           <div className="w-3 h-3 rounded-full bg-green-400"></div>
         </div>
-        <span className="text-sm text-gray-600 dark:text-gray-400 font-mono">Developer.java</span>
+        <span className="text-sm text-gray-600 dark:text-gray-400 font-mono">
+          Developer.java
+        </span>
       </div>
 
       {/* Code content */}
-      <div className="space-y-1">
+      <div className="space-y-1 font-mono text-sm">
         {codeLines.map((line, index) => (
           <motion.div
             key={index}
@@ -60,12 +79,18 @@ const CodeBlock = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="flex items-center"
+            className="flex items-start"
           >
-            <span className="text-xs text-gray-400 w-6 text-right mr-3 font-mono">
+            <span className="text-xs text-gray-400 w-6 text-right mr-3">
               {index + 1}
             </span>
-            <span className={getColorClass(line.type)}>{line.text}</span>
+            <span>
+              {line.map((token, i) => (
+                <span key={i} className={getColorClass(token.type)}>
+                  {token.text}
+                </span>
+              ))}
+            </span>
           </motion.div>
         ))}
       </div>
