@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import ProjectCard from "@/components/ProjectCard";
 import SkillCard from "@/components/SkillCard";
 import BlogPost from "@/components/BlogPost";
+import BlogSection from "@/components/BlogSection";
+import ProgrammingLogos from "@/components/ProgrammingLogos";
 
 const Index = () => {
   const [name, setName] = useState("");
@@ -154,10 +156,11 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto"
+            className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Passionate Java developer with expertise in Spring Boot, Data Structures & Algorithms, and modern web technologies. 
-            Building scalable enterprise applications with clean code and innovative solutions.
+            Hi, I'm Akash, a passionate Java developer specializing in <span className="text-java-orange font-semibold">Spring Boot</span>, 
+            <span className="text-java-blue font-semibold"> Data Structures & Algorithms</span>, and modern web technologies. 
+            I love building scalable enterprise applications and optimizing performance for high-traffic systems.
           </motion.p>
           
           <motion.div
@@ -167,8 +170,16 @@ const Index = () => {
             className="flex gap-4 justify-center flex-wrap"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="bg-java-orange hover:bg-java-orange-dark text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                Contact Me
+              <Button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-java-orange hover:bg-java-orange-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
+                  animate={{ x: [-100, 100] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                />
+                Want to collaborate? Let's talk!
                 <Mail className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
@@ -305,13 +316,35 @@ const Index = () => {
             <div className="w-24 h-1 java-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8"
+          >
             {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50, rotateX: 10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Programming Technologies */}
+      <ProgrammingLogos />
 
       {/* Skills Section */}
       <section id="skills" className="section-padding bg-white/50 backdrop-blur-sm relative">
@@ -327,13 +360,35 @@ const Index = () => {
             <div className="w-24 h-1 tech-gradient mx-auto rounded-full shadow-lg"></div>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, staggerChildren: 0.1 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {skills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 120
+                }}
+                viewport={{ once: true }}
+              >
+                <SkillCard skill={skill} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* Achievements Section */}
       <section id="achievements" className="section-padding bg-gradient-to-br from-red-50/30 to-orange-50/30 relative">

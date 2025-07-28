@@ -17,20 +17,46 @@ const SkillCard = ({ skill }: SkillCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300 group"
+      whileHover={{ 
+        y: -5,
+        scale: 1.02,
+        transition: { duration: 0.2 }
+      }}
+      className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 border border-java-blue/20 group relative overflow-hidden"
     >
-      <h3 className="font-display font-semibold text-lg mb-4 text-emerald-800 group-hover:text-emerald-600 transition-colors">
-        {skill.category}
-      </h3>
-      <div className="flex flex-wrap gap-2">
-        {skill.items.map((item, index) => (
-          <span
-            key={index}
-            className="px-3 py-1 bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-700 rounded-full text-sm font-medium border border-emerald-200 hover:bg-emerald-100 transition-colors"
-          >
-            {item}
-          </span>
-        ))}
+      {/* Animated background gradient */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-java-orange/5 to-java-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+      />
+      
+      <div className="relative z-10">
+        <motion.h3 
+          className="font-display font-semibold text-lg text-java-gray mb-4 group-hover:text-java-orange transition-colors"
+          whileHover={{ scale: 1.05 }}
+        >
+          {skill.category}
+        </motion.h3>
+        <div className="flex flex-wrap gap-2">
+          {skill.items.map((item, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ 
+                scale: 1.1, 
+                backgroundColor: "hsl(var(--java-blue))",
+                color: "white",
+                transition: { duration: 0.2 }
+              }}
+              className="px-3 py-1 bg-java-blue/10 text-java-blue rounded-full text-sm font-medium hover:bg-java-blue hover:text-white transition-all duration-200 cursor-pointer"
+            >
+              {item}
+            </motion.span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
