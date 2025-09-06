@@ -101,6 +101,8 @@ const CodeBlock = () => {
         transition={{ duration: 1, repeat: Infinity }}
         className="inline-block w-2 h-5 bg-java-blue ml-1 mt-2"
       />
+
+      
     </motion.div>
   );
 };

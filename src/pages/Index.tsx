@@ -25,7 +25,7 @@ const Index = () => {
       description: "A self-paced desktop learning platform using Java and MySQL with gamified progress tracking and interactive content.",
       technologies: ["Java", "Java Swing", "JDBC", "MySQL"],
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-      github: "https://github.com/akashkumaran15",
+      github: "https://github.com/Akash-Shanmugavadivel",
       demo: "#",
     },
     {
@@ -33,7 +33,7 @@ const Index = () => {
       description: "AI-powered Programming Tutor & Debugging Assistant using RAG, reducing debugging time by 40%.",
       technologies: ["Python", "Streamlit", "LangChain", "Azure OpenAI", "LLMs"],
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
-      github: "https://github.com/akashkumaran15",
+      github: "https://github.com/Akash-Shanmugavadivel",
       demo: "#",
     },
     {
@@ -41,7 +41,7 @@ const Index = () => {
       description: "RESTful API with full CRUD operations, layered architecture, and Spring Data JPA integration.",
       technologies: ["Java", "Spring Boot", "Spring Data JPA", "Maven"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
-      github: "https://github.com/akashkumaran15",
+      github: "https://github.com/Akash-Shanmugavadivel",
       demo: "#",
     },
     {
@@ -49,7 +49,7 @@ const Index = () => {
       description: "Responsive web application for personal note management with calendar and reminder features.",
       technologies: ["HTML", "CSS", "JavaScript", "MySQL", "Bootstrap"],
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
-      github: "https://github.com/akashkumaran15",
+      github: "https://github.com/Akash-Shanmugavadivel",
       demo: "#",
     },
   ];

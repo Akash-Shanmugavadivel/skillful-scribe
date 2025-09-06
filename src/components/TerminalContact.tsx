@@ -29,11 +29,11 @@ const TerminalContact = () => {
         break;
       case "linkedin":
         newOutput.push("🔗 Opening LinkedIn profile...");
-        window.open("https://linkedin.com/in/akash-s", "_blank");
+        window.open("https://www.linkedin.com/in/akash-shanmugavadivel", "_blank");
         break;
       case "github":
         newOutput.push("🐙 Opening GitHub profile...");
-        window.open("https://github.com/akashkumaran15", "_blank");
+        window.open("https://github.com/Akash-Shanmugavadivel", "_blank");
         break;
       case "hire":
         newOutput.push("✅ Available for new opportunities!");
